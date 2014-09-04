@@ -19,7 +19,7 @@ endif
 # Compile Linux Kernel
 #----------------------------------------------------------------------
 ifeq ($(KERNEL_DEFCONFIG),)
-    KERNEL_DEFCONFIG := msm8960_defconfig
+    KERNEL_DEFCONFIG := cm_qs600_android_defconfig
 endif
 
 include kernel/AndroidKernel.mk
