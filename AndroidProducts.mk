@@ -1,3 +1,3 @@
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/msm8960.mk
+    $(LOCAL_DIR)/bellatrix.mk

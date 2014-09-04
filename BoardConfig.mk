@@ -11,6 +11,7 @@ BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 
 -include vendor/qcom/proprietary/common/msm8960/BoardConfigVendor.mk
+include device/qcom/bellatrix/build_id.mk
 
 TARGET_USE_HDMI_AS_PRIMARY := false
 
@@ -41,7 +42,7 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 
 TARGET_HARDWARE_3D := false
 TARGET_BOARD_PLATFORM := msm8960
-TARGET_BOOTLOADER_BOARD_NAME := MSM8960
+TARGET_BOOTLOADER_BOARD_NAME := BELLATRIX
 
 BOARD_KERNEL_BASE    := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048

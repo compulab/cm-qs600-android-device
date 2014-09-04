@@ -1,5 +1,5 @@
 #
-# system.prop for surf
+# system.prop for bellatrix
 #
 
 rild.libpath=/system/lib/libril-qc-qmi-1.so
