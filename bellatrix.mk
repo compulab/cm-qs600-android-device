@@ -17,6 +17,7 @@ $(call inherit-product, device/qcom/common/common.mk)
 PRODUCT_NAME := bellatrix
 PRODUCT_DEVICE := bellatrix
 PRODUCT_MANUFACTURER := CompuLab
+PRODUCT_CHARACTERISTICS := tablet
 
 PRODUCT_BOOT_JARS += qcom.fmradio:qcmediaplayer:WfdCommon:org.codeaurora.Performance
 
