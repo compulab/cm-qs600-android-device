@@ -13,16 +13,6 @@ USE_CAMERA_STUB := true
 -include vendor/qcom/proprietary/common/msm8960/BoardConfigVendor.mk
 include device/qcom/bellatrix/build_id.mk
 
-TARGET_USE_HDMI_AS_PRIMARY := false
-
-ifeq ($(TARGET_USE_HDMI_AS_PRIMARY),true)
-    TARGET_HAVE_HDMI_OUT := false
-else
-    TARGET_HAVE_HDMI_OUT := true
-endif # TARGET_USE_HDMI_AS_PRIMARY
-#TODO: Fix-me: Setting TARGET_HAVE_HDMI_OUT to false
-# to get rid of compilation error.
-TARGET_HAVE_HDMI_OUT := false
 BOARD_USES_LEGACY_ALSA_AUDIO := true
 TARGET_USES_OVERLAY := true
 TARGET_NO_BOOTLOADER := false
@@ -78,21 +68,14 @@ TARGET_KRAIT_BIONIC_PLDTHRESH := 10
 TARGET_KRAIT_BIONIC_BBTHRESH := 64
 TARGET_KRAIT_BIONIC_PLDSIZE := 64
 
-HAVE_CYTTSP_FW_UPGRADE := true
-HAVE_MXT_FW_UPGRADE := true
-HAVE_MXT_CFG := true
+HAVE_CYTTSP_FW_UPGRADE := false
+HAVE_MXT_CFG := false
 
 # Add NON-HLOS files for ota upgrade
 ADD_RADIO_FILES ?= false
 
 # Added to indicate that protobuf-c is supported in this build
 PROTOBUF_SUPPORTED := true
-
-# Add building support AR8151 ALX ethernet driver
-BOARD_HAS_ATH_ETH_ALX := true
-
-#TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-#TARGET_RECOVERY_UI_LIB := librecovery_ui_qcom
 
 TARGET_USES_ION := true
 
