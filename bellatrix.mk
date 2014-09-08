@@ -65,17 +65,10 @@ PRODUCT_PACKAGES += PhaseBeam
 #fstab.qcom
 PRODUCT_PACKAGES += fstab.qcom
 
-#wlan driver
-PRODUCT_COPY_FILES += \
-    device/qcom/bellatrix/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    device/qcom/bellatrix/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-    device/qcom/bellatrix/WCNSS_qcom_wlan_nv.bin:persist/WCNSS_qcom_wlan_nv.bin
-
+# WLAN
 PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf
-
-PRODUCT_PACKAGES += wcnss_service
 
 #ANT+ stack
 PRODUCT_PACKAGES += \

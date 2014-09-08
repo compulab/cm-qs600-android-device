@@ -273,7 +273,6 @@ on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
     mkdir /tombstones/mdm 0771 system system
     mkdir /tombstones/mdm2 0771 system system
@@ -846,12 +845,6 @@ service imsdatadaemon /system/bin/imsdatadaemon
     socket ims_datad stream 0660 system radio
     group ims radio wifi net_raw log qcom_diag net_admin
     disabled
-
-service wcnss-service /system/bin/wcnss_service
-    class late_start
-    user system
-    group system wifi
-    oneshot
 
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
