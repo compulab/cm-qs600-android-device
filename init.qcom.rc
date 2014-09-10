@@ -40,8 +40,19 @@ on init
     mkdir /storage 0550 system sdcard_r
     mkdir /storage/emulated 0555 root root
     mkdir /storage/emulated/legacy 0555 root root
+
+    # Create mount points for removable storage devices
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard1 0700 root root
+
+    mkdir /mnt/media_rw/udisk1  0700 media_rw media_rw
+    mkdir /storage/udisk1 0700 root root
+
+    mkdir /mnt/media_rw/udisk2  0700 media_rw media_rw
+    mkdir /storage/udisk2 0700 root root
+
+    mkdir /mnt/media_rw/udisk3  0700 media_rw media_rw
+    mkdir /storage/udisk3 0700 root root
 
     export EXTERNAL_STORAGE /storage/emulated/legacy
     export SECONDARY_STORAGE /storage/sdcard1
@@ -679,6 +690,19 @@ on nonencrypted
 
 on property:vold.decrypt=trigger_restart_framework
     setprop ro.fuse_sdcard ${persist.fuse_sdcard}
+
+# removable storage devices
+service fuse_udisk1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/udisk1 /storage/udisk1
+    class late_start
+    disabled
+
+service fuse_udisk2 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/udisk2 /storage/udisk2
+    class late_start
+    disabled
+
+service fuse_udisk3 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/udisk3 /storage/udisk3
+    class late_start
+    disabled
 
 service hcidump /system/bin/sh /system/etc/hcidump.sh
     user bluetooth

@@ -5,7 +5,19 @@
 #TODO: Add 'check' as fs_mgr_flags with data partition.
 # Currently we dont have e2fsck compiled. So fs check would failed.
 
-#<src>                                                <mnt_point>  	<type>  <mnt_flags and options>                     <fs_mgr_flags>
-/dev/block/platform/msm_sdcc.1/by-name/system         /system      	ext4    ro,barrier=1                                wait
-/dev/block/platform/msm_sdcc.1/by-name/userdata       /data        	ext4    nosuid,nodev,barrier=1,noauto_da_alloc      wait,check,length=1073741824,encryptable=footer
-/devices/platform/msm_sdcc.3/mmc_host                 /storage/sdcard1 	vfat    nosuid,nodev                                wait,voldmanaged=sdcard1:auto
+#<src>                                                <mnt_point>  	   <type>  <mnt_flags and options>                     <fs_mgr_flags>
+#boot time mount
+/dev/block/platform/msm_sdcc.1/by-name/system         /system      	   ext4    ro,barrier=1                                wait
+/dev/block/platform/msm_sdcc.1/by-name/userdata       /data        	   ext4    nosuid,nodev,barrier=1,noauto_da_alloc      wait,check,length=1073741824,encryptable=footer
+
+#automount
+# Notice:
+# Vold-managed mount points have to be in sync with storage_list.xml
+# in order to prevent Settings:Storage crash.
+/devices/platform/msm_sdcc.3/mmc_host            /mnt/media_rw/sdcard1 vfat    nosuid,nodev                                wait,voldmanaged=sdcard1:auto
+# USB1..3
+/devices/platform/msm_ehci_host.0/usb1           /mnt/media_rw/udisk1  vfat    defaults                                    wait,voldmanaged=udisk1:auto
+# USB4
+/devices/platform/msm_ehci_host.1/usb2           /mnt/media_rw/udisk2  vfat    defaults                                    wait,voldmanaged=udisk2:auto
+# USB-OTG
+/devices/platform/msm_hsusb_host/usb3            /mnt/media_rw/udisk3  vfat    defaults                                    wait,voldmanaged=udisk3:auto
