@@ -3375,7 +3375,7 @@
     <string name="wifi_watchdog_network_disabled_detailed">\u0020has a poor Internet connection.</string>
 
     <!-- Do not translate. Default access point SSID used for tethering -->
-    <string name="wifi_tether_configure_ssid_default" translatable="false">AndroidAP</string>
+    <string name="wifi_tether_configure_ssid_default" translatable="false">BellatrixAP</string>
 
     <string name="wifi_p2p_dialog_title">Wi-Fi Direct</string>
     <string name="wifi_p2p_turnon_message">Start Wi-Fi Direct. This will turn off Wi-Fi client/hotspot.</string>
