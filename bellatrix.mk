@@ -47,6 +47,10 @@ PRODUCT_COPY_FILES += device/qcom/bellatrix/snd_soc_msm/snd_soc_msm_2x:system/et
 PRODUCT_COPY_FILES += \
     device/qcom/bellatrix/sec_config:system/etc/sec_config
 
+# init.<device>.rc
+PRODUCT_COPY_FILES += \
+    device/qcom/bellatrix/init.qcom.rc:root/init.qcom.rc
+
 PRODUCT_PACKAGES += \
     battery_monitor \
     battery_shutdown
