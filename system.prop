@@ -2,8 +2,8 @@
 # system.prop for bellatrix
 #
 
-rild.libpath=
-rild.libargs=
+rild.libpath=/system/lib/libril-telit-he910.so
+rild.libargs=-d /dev/ttyACM0
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
 persist.rild.nitz_long_ons_1=

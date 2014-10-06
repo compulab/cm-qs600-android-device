@@ -71,6 +71,16 @@ PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf
 
+# RIL
+PRODUCT_PACKAGES += \
+    chat \
+    ip-up-ppp0 \
+    ip-down-ppp0 \
+    libril-telit-he910 \
+    options \
+    hsdpa_connect \
+    hsdpa_disconnect
+
 #ANT+ stack
 PRODUCT_PACKAGES += \
 AntHalService \

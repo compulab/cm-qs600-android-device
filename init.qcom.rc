@@ -354,6 +354,13 @@ service startup-svc /system/bin/sh /system/etc/startup-svc.sh
     user root
     oneshot
 
+service pppd /system/bin/pppd file /etc/options
+    class main
+    user root
+    group shell radio
+    oneshot
+    disabled
+
 on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
     start config_bluetooth
