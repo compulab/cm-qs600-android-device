@@ -2,8 +2,8 @@
 # system.prop for bellatrix
 #
 
-rild.libpath=/system/lib/libril-qc-qmi-1.so
-rild.libargs=-d /dev/smd0
+rild.libpath=
+rild.libargs=
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
 persist.rild.nitz_long_ons_1=
@@ -26,7 +26,7 @@ debug.mdpcomp.logs=0
 #
 # system props for the cne module
 #
-persist.cne.feature=1
+persist.cne.feature=0
 
 ro.hdmi.enable=true
 lpa.decode=false
@@ -48,12 +48,6 @@ media.aac_51_output_enabled=true
 #33395 is sum of supported format flags in AAL
 #Formats: AVI AC3 ASF AAC QCP DTS 3G2
 mm.enable.qcom_parser=33395
-
-#
-# system props for the data modules
-#
-ro.use_data_netmgrd=true
-persist.data.netmgrd.qos.enable=true
 
 #system props for time-services
 persist.timed.enable=true
