@@ -459,6 +459,9 @@ service adbd /sbin/adbd
 on property:ro.kernel.qemu=1
     start adbd
 
+on property:service.adb.tcp.port=*
+    restart adbd
+
 service servicemanager /system/bin/servicemanager
     class core
     user system
