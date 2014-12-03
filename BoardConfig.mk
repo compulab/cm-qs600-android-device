@@ -7,12 +7,12 @@ ifeq ($(TARGET_ARCH),)
 TARGET_ARCH := arm
 endif
 
-BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 
 -include vendor/qcom/proprietary/common/msm8960/BoardConfigVendor.mk
 include device/qcom/bellatrix/build_id.mk
 
+# BOARD_USES_ALSA_AUDIO is implied
 BOARD_USES_LEGACY_ALSA_AUDIO := true
 TARGET_USES_OVERLAY := true
 TARGET_NO_BOOTLOADER := true
