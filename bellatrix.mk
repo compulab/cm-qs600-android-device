@@ -14,6 +14,7 @@ endif #TARGET_USES_QCOM_BSP
 
 $(call inherit-product, device/qcom/common/common.mk)
 
+PRODUCT_MODEL := Utilite2
 PRODUCT_NAME := bellatrix
 PRODUCT_DEVICE := bellatrix
 PRODUCT_MANUFACTURER := CompuLab
