@@ -684,6 +684,10 @@ on property:vold.decrypt=trigger_restart_framework
     setprop ro.fuse_sdcard ${persist.fuse_sdcard}
 
 # removable storage devices
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+    class late_start
+    disabled
+
 service fuse_udisk1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/udisk1 /storage/udisk1
     class late_start
     disabled
