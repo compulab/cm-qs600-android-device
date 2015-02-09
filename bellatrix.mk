@@ -13,6 +13,10 @@ else
 endif #TARGET_USES_QCOM_BSP
 
 $(call inherit-product, device/qcom/common/common.mk)
+ifeq ($(USE_PROPRIETARY_SOURCECODE),)
+# prebuilt proprietary libraries
+$(call inherit-product-if-exists, vendor/qcom/proprietary/common/config/device-vendor.mk)
+endif
 
 PRODUCT_MODEL := Utilite2
 PRODUCT_NAME := bellatrix

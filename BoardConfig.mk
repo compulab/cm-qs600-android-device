@@ -9,7 +9,11 @@ endif
 
 USE_CAMERA_STUB := true
 
+ifeq ($(USE_PROPRIETARY_SOURCECODE), true)
+# proprietary source code
 -include vendor/qcom/proprietary/common/msm8960/BoardConfigVendor.mk
+endif
+-include vendor/qcom/proprietary/common/build/utils.mk
 include device/qcom/bellatrix/build_id.mk
 
 # BOARD_USES_ALSA_AUDIO is implied
