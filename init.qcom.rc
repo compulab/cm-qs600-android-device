@@ -189,8 +189,6 @@ on boot
     # an ack packet comes out of order
     write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
 
-    start qcamerasvr
-
 on fs
     mount_all fstab.qcom
 
@@ -737,12 +735,15 @@ service diag_mdlog_stop /system/bin/diag_mdlog -k
     disabled
     oneshot
 
-# disabled as long as CONFIG_MSM_CAMERA is not set
-# #start camera server as daemon
-# service qcamerasvr /system/bin/mm-qcamera-daemon
-#     class late_start
-#     user camera
-#     group camera system inet input graphics net_bt_stack
+on property:ro.camera.server=1
+    start qcamerasvr
+
+#start camera server as daemon
+service qcamerasvr /system/bin/mm-qcamera-daemon
+    class late_start
+    user camera
+    group camera system inet input graphics net_bt_stack
+    disabled
 
 #start GNSS/Sensor interface daemon
 service gsiff_daemon /system/bin/gsiff_daemon
