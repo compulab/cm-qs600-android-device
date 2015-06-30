@@ -347,7 +347,7 @@ service pppd /system/bin/pppd file /etc/options
     disabled
 
 on property:vold.decrypt=trigger_restart_framework
-    start qcom-c_main-sh
+    start startup-svc
     start config_bluetooth
 
 service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
