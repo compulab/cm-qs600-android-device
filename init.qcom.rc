@@ -72,23 +72,14 @@ on early-boot
     exec /system/bin/sh /init.qcom.early_boot.sh ${ro.board.platform}
 
 on boot
-    chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
-    chown system system /sys/module/sco/parameters/disable_esco
-    chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/module/bluetooth_power/parameters/power
-    chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
+    chown bluetooth bluetooth /sys/module/hci_uart/parameters
     chmod 0660 /sys/class/rfkill/rfkill0/state
-    chmod 0660 /proc/bluetooth/sleep/proto
     chown bluetooth bluetooth /dev/ttyHS0
     chmod 0660 /dev/ttyHS0
     chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
     chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
-
-    chmod 0660 /dev/ttyHS2
-    chown bluetooth bluetooth /dev/ttyHS2
 
     setprop wifi.interface wlan0
 
@@ -671,12 +662,6 @@ service fuse_udisk2 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/udisk2 /
 service fuse_udisk3 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/udisk3 /storage/udisk3
     class late_start
     disabled
-
-service hcidump /system/bin/sh /system/etc/hcidump.sh
-    user bluetooth
-    group bluetooth system net_bt_admin net_admin
-    disabled
-    oneshot
 
 service charger /charger
     class charger
