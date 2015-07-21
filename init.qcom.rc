@@ -90,14 +90,6 @@ on boot
     chmod 0660 /dev/ttyHS2
     chown bluetooth bluetooth /dev/ttyHS2
 
-    #Create QMUX deamon socket area
-    mkdir /dev/socket/qmux_audio 0770 media audio
-    chmod 2770 /dev/socket/qmux_audio
-    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
-    chmod 2770 /dev/socket/qmux_bluetooth
-    mkdir /dev/socket/qmux_gps 0770 gps gps
-    chmod 2770 /dev/socket/qmux_gps
-
     setprop wifi.interface wlan0
 
     setprop ro.telephony.call_ring.multiple false
@@ -199,8 +191,6 @@ on post-fs-data
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
 
-    mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
-
     # Create the directories used by the Wireless subsystem
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
@@ -301,9 +291,6 @@ on property:persist.debug.trace=1
     write /sys/bus/coresight/devices/coresight-etm2/enable 1
     write /sys/bus/coresight/devices/coresight-etm3/enable 1
 
-on property:ro.board.platform=msm7630_fusion
-    start usbhub_init
-
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
@@ -374,13 +361,6 @@ on property:bluetooth.hciattach=true
 
 on property:bluetooth.hciattach=false
     setprop bluetooth.status off
-
-service hciattach_ath3k /system/bin/sh /system/etc/init.ath3k.bt.sh
-    class late_start
-    user bluetooth
-    group system bluetooth net_bt_admin misc
-    disabled
-    oneshot
 
 service bt-dun /system/bin/sh /system/etc/init.qcom.btdun.sh
     class late_start
