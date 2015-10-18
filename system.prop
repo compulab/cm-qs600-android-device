@@ -128,3 +128,9 @@ persist.rmnet.mux=disabled
 
 #disable gapless mode by default
 audio.gapless.playback.disable=true
+
+#
+# Bluetooth MAC address
+#
+ro.bt.bdaddr_path=/proc/macaddr/bt
+
