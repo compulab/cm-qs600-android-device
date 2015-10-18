@@ -29,10 +29,6 @@ PRODUCT_BOOT_JARS += qcom.fmradio:qcmediaplayer:WfdCommon:org.codeaurora.Perform
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
 
-# Bluetooth configuration files
-#PRODUCT_COPY_FILES += \
-    system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf \
-
 # Audio configuration file
 PRODUCT_COPY_FILES += \
     device/qcom/bellatrix/audio_policy.conf:system/etc/audio_policy.conf \
