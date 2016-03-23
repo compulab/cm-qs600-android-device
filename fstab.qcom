@@ -9,7 +9,12 @@
 #boot time mount
 /dev/block/platform/msm_sdcc.1/by-name/system         /system      	   ext4    ro,barrier=1                                      wait
 /dev/block/platform/msm_sdcc.1/by-name/cache          /cache           ext4    nosuid,nodev,noatime,barrier=1                    wait,check
+# eMMC
 /dev/block/platform/msm_sdcc.1/by-name/userdata       /data        	   ext4    nosuid,nodev,noatime,barrier=1,noauto_da_alloc    wait,check,length=1073741824,encryptable=footer
+# SD-card
+#/dev/block/platform/msm_sdcc.3/by-name/userdata       /data        	   ext4    nosuid,nodev,noatime,barrier=1,noauto_da_alloc    wait,check,length=1073741824,encryptable=footer
+# mSATA
+#/dev/block/platform/msm_sata.0/by-name/userdata       /data        	   ext4    nosuid,nodev,noatime,barrier=1,noauto_da_alloc    wait,check,length=1073741824,encryptable=footer
 
 #automount
 # Notice:
